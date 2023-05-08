@@ -31,7 +31,7 @@ class PlantCard extends StatelessWidget {
           GestureDetector(
             onTap: () => press(),
             child:  Container(
-              margin: EdgeInsets.only(
+              margin: const EdgeInsets.only(
                 left: kDefaultPadding - 15,
                 right: kDefaultPadding - 15,
                 top: kDefaultPadding - 20,
@@ -39,9 +39,10 @@ class PlantCard extends StatelessWidget {
               ),
               padding: EdgeInsets.all(kDefaultPadding / 2),
               decoration: BoxDecoration(
-                borderRadius: BorderRadius.only(
-                    bottomLeft: Radius.circular(10),
-                    bottomRight: Radius.circular(10)),
+                borderRadius: const BorderRadius.only(
+                  bottomLeft: Radius.circular(10),
+                  bottomRight: Radius.circular(10)
+                ),
                 color: Colors.white,
                 boxShadow: [
                   BoxShadow(

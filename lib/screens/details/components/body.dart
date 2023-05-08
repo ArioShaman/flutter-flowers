@@ -2,7 +2,9 @@
 
 import 'package:first_app/contstants.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter_svg/svg.dart';
+
+import 'image-and-cards.dart';
+import 'title-and-price.dart';
 
 class Body extends StatelessWidget {
   const Body({super.key});
@@ -11,45 +13,52 @@ class Body extends StatelessWidget {
   Widget build(BuildContext context) {
     Size size = MediaQuery.of(context).size;
 
-    return Column(
-      children: [
-        Row(
-          children: [
-            Expanded(
-              child: Column(
-                children: [
-                  IconButton(
-                    onPressed: () {},
-                    icon: SvgPicture.asset('assets/icons/back_arrow.svg')
-                  )
-                ],
-              )
-            ),
-            Container(
-              height: size.height * 0.8,
-              width: size.width * 0.75,
-              decoration: BoxDecoration(
-                borderRadius: BorderRadius.only(
-                  topLeft: Radius.circular(63),
-                  bottomLeft: Radius.circular(63),
+    return SingleChildScrollView(
+      child: Column(
+        children: [
+          const ImageAndIcons(),
+          const TitleAndPrice(
+            title: 'Angelica',
+            price: 330,
+            country: 'Russia',
+          ),
+          SizedBox(height: kDefaultPadding),
+          Row(
+            children: [
+              SizedBox(
+                width: size.width / 2,
+                height: 84,
+                child: TextButton(
+                  onPressed: () {},
+                  style: TextButton.styleFrom(
+                    shape: const RoundedRectangleBorder(
+                      borderRadius: BorderRadius.only(
+                        topRight: Radius.circular(20)
+                      ),
+                    ),
+                    backgroundColor: kPrimaryColor,
+                  ),
+                  child: const Text(
+                    'Buy now',
+                    style: TextStyle(
+                      color: Colors.white,
+                      fontSize: 16
+                    ),
+                  ),
                 ),
-                boxShadow: [
-                  BoxShadow(
-                    offset: Offset(0, 10),
-                    blurRadius: 60,
-                    color: kPrimaryColor.withOpacity(0.29),
-                  )
-                ],
-                image: DecorationImage(
-                  fit: BoxFit.cover,
-                  alignment: Alignment.centerLeft,
-                  image: AssetImage('assets/images/img.png')
-                )
               ),
-            ),
-          ],
-        ),
-      ],
+              Expanded(
+                child: TextButton(
+                  onPressed: () {},
+                  child: const Text(
+                    'Description',
+                  ),
+                ),
+              )
+            ],
+          ),
+        ],
+      )
     );
   }
 }
